@@ -1,0 +1,42 @@
+import {createRouter,createWebHashHistory} from 'vue-router';
+export default createRouter({
+	routes:[
+		{
+			path:"/",
+			component:()=>import('../components/pages/MyLogin.vue')
+		},
+		{
+			path:"/main",
+			redirect:"/1"
+		},
+		{
+			path:"/main",
+			component:()=>import('../components/pages/Main.vue'),
+			meta:{
+				title:'自述文件'
+			},
+			children:[
+				{
+					path:"/1",
+					component:()=>import('../components/pages/MyLogin.vue'),
+					meta:{
+						title:'注册页面'
+					}
+				},
+				{
+					path:"/2",
+					component:()=>import('../components/pages/TestForm.vue'),
+					meta:{
+						title:'用户管理'
+					}
+				},
+			]
+		},
+		{
+			path:"/TestForm",
+			component:()=>import('../components/pages/TestForm.vue')
+		},
+		
+	],
+	history:createWebHashHistory()
+});

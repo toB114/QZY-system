@@ -1,0 +1,7 @@
+body,#app,.wrapper{
+	width: auto;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+}
+
